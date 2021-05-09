@@ -3,7 +3,7 @@ import javax.swing.JOptionPane;
 
 
 public class actionGenre extends javax.swing.JFrame {
-    String[][] quiz = new String[11][8];
+    String[][] quiz = new String[11][7];
     public static int question = 0;
     public static int score = 0;
     public static int quizNum = 0;
@@ -22,22 +22,25 @@ public class actionGenre extends javax.swing.JFrame {
         quizNum++;
         numM.setText(""+quizNum);
         
+        next.setEnabled(false);
+        
             bA.setText(quiz[question][1]);
             bB.setText(quiz[question][2]);
             bC.setText(quiz[question][3]);
             bD.setText(quiz[question][4]);
-            
+    
             bA.setEnabled(true);
             bB.setEnabled(true);
             bC.setEnabled(true);
             bD.setEnabled(true);
     }
-    
+
     public void UpdatesBack(){
         jLabel3.setText(quiz[question][0]);
         
         quizNum--;
         numM.setText(""+quizNum);
+        
         
             bA.setText(quiz[question][1]);
             bB.setText(quiz[question][2]);
@@ -120,13 +123,13 @@ public class actionGenre extends javax.swing.JFrame {
             quiz[9][3] = "Avengers: Endgame (2019)";
             quiz[9][4] = "Jurassic World (2015)";
             quiz[9][5] = "1";
-            
-        quiz[10][0] = "------";
-            quiz[10][1] = "-----";
-            quiz[10][2] = "-----";
-            quiz[10][3] = "-----";
-            quiz[10][4] = "-----";
-            quiz[10][5] = "Click here to see reults";
+           
+        quiz[10][0] = "";
+            quiz[10][1] = "";
+            quiz[10][2] = "";
+            quiz[10][3] = "";
+            quiz[10][4] = "";
+            quiz[10][5] = "";
             quiz[10][6] = "5";
     }
     @SuppressWarnings("unchecked")
@@ -138,6 +141,7 @@ public class actionGenre extends javax.swing.JFrame {
         botPanel = new javax.swing.JPanel();
         next = new javax.swing.JButton();
         back = new javax.swing.JButton();
+        bE = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         topPanel = new javax.swing.JPanel();
         playerName = new javax.swing.JLabel();
@@ -156,7 +160,6 @@ public class actionGenre extends javax.swing.JFrame {
         bB = new javax.swing.JRadioButton();
         bC = new javax.swing.JRadioButton();
         bD = new javax.swing.JRadioButton();
-        bE = new javax.swing.JRadioButton();
         checker = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -177,9 +180,10 @@ public class actionGenre extends javax.swing.JFrame {
                 nextActionPerformed(evt);
             }
         });
-        botPanel.add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(705, 10, 90, 50));
+        botPanel.add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 100, 50));
 
         back.setFocusable(false);
+        back.setVisible(false);
         back.setBackground(new java.awt.Color(255, 255, 255));
         back.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         back.setForeground(new java.awt.Color(51, 51, 51));
@@ -190,6 +194,19 @@ public class actionGenre extends javax.swing.JFrame {
             }
         });
         botPanel.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, 50));
+
+        bE.setFocusable(false);
+        bE.setVisible(false);
+        bE.setBackground(new java.awt.Color(255, 255, 255));
+        bE.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        bE.setForeground(new java.awt.Color(51, 51, 51));
+        bE.setText("Results");
+        bE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEActionPerformed(evt);
+            }
+        });
+        botPanel.add(bE, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, 160, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/movieBB.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -321,19 +338,6 @@ public class actionGenre extends javax.swing.JFrame {
             }
         });
 
-        bE.setVisible(false);
-        bE.setFocusable(false);
-        bE.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup1.add(bE);
-        bE.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        bE.setForeground(new java.awt.Color(51, 51, 51));
-        bE.setText("Click here to see results");
-        bE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bEActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout choicesPanelsLayout = new javax.swing.GroupLayout(choicesPanels);
         choicesPanels.setLayout(choicesPanelsLayout);
         choicesPanelsLayout.setHorizontalGroup(
@@ -341,17 +345,12 @@ public class actionGenre extends javax.swing.JFrame {
             .addGroup(choicesPanelsLayout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addGroup(choicesPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(choicesPanelsLayout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(bE))
-                    .addGroup(choicesPanelsLayout.createSequentialGroup()
-                        .addGroup(choicesPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bB)
-                            .addComponent(bA))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 99, Short.MAX_VALUE)
-                        .addGroup(choicesPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bC)
-                            .addComponent(bD))))
+                    .addComponent(bB)
+                    .addComponent(bA))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 99, Short.MAX_VALUE)
+                .addGroup(choicesPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bC)
+                    .addComponent(bD))
                 .addContainerGap(185, Short.MAX_VALUE))
         );
         choicesPanelsLayout.setVerticalGroup(
@@ -365,9 +364,7 @@ public class actionGenre extends javax.swing.JFrame {
                 .addGroup(choicesPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bB)
                     .addComponent(bD))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         backGroundPanel.add(choicesPanels, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 600, 210));
@@ -397,6 +394,7 @@ public class actionGenre extends javax.swing.JFrame {
             checker.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/wrong2.png")));
             
         }
+        next.setEnabled(true);
         scoreLabel.setText(""+score);
         
         bA.setEnabled(false);
@@ -409,9 +407,14 @@ public class actionGenre extends javax.swing.JFrame {
     private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
         question++;
         Updates();
-        
-        if(quiz[question][0] == quiz[10][0]){
+        if(quiz[question][0]==quiz[10][0]){
             bE.setVisible(true);
+            jLabel3.setEnabled(false);
+            bA.setEnabled(false);
+            bB.setEnabled(false);
+            bC.setEnabled(false);
+            bD.setEnabled(false);
+            numM.setText("10");
         }
     }//GEN-LAST:event_nextActionPerformed
 
@@ -422,6 +425,7 @@ public class actionGenre extends javax.swing.JFrame {
         }else{
             checker.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/wrong2.png")));
         }
+        next.setEnabled(true);
         scoreLabel.setText(""+score);
         
         bA.setEnabled(false);
@@ -437,6 +441,7 @@ public class actionGenre extends javax.swing.JFrame {
         }else{
             checker.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/wrong2.png")));
         }
+        next.setEnabled(true);
         scoreLabel.setText(""+score);
         
         bA.setEnabled(false);
@@ -452,6 +457,7 @@ public class actionGenre extends javax.swing.JFrame {
         }else{
             checker.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/wrong2.png")));
         }
+        next.setEnabled(true);
         scoreLabel.setText(""+score);
         
         bA.setEnabled(false);
@@ -469,9 +475,9 @@ public class actionGenre extends javax.swing.JFrame {
 
     private void bEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEActionPerformed
         if(evt.getSource()==bE){
-            actionResults ar = new actionResults();
-            ar.setVisible(true);
-            ar.setLocationRelativeTo(null);
+            actionResults act = new actionResults();
+            act.setVisible(true);
+            act.setLocationRelativeTo(null);
             this.dispose();
         }
     }//GEN-LAST:event_bEActionPerformed
@@ -513,7 +519,7 @@ public class actionGenre extends javax.swing.JFrame {
     public static javax.swing.JRadioButton bB;
     public static javax.swing.JRadioButton bC;
     public static javax.swing.JRadioButton bD;
-    public static javax.swing.JRadioButton bE;
+    public static javax.swing.JButton bE;
     public static javax.swing.JButton back;
     private javax.swing.JPanel backGroundPanel;
     private javax.swing.JPanel botPanel;

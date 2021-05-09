@@ -18,6 +18,8 @@ public class scifiGenre extends javax.swing.JFrame {
         numQ++;
         QuestionDisp.setText(""+numQ);
         
+        Next.setVisible(false);
+        
             ButtA.setText(questions[question][1]);
             ButtB.setText(questions[question][2]);
             ButtC.setText(questions[question][3]);
@@ -35,6 +37,12 @@ public class scifiGenre extends javax.swing.JFrame {
         
         numQ--;
         QuestionDisp.setText(""+numQ);
+        
+        if(questions[question][0] == questions[question][0]){
+            Back.setVisible(false);
+        }else if (questions[question][0] != questions[question][0]){
+            Back.setVisible(true);
+        }
         
             ButtA.setText(questions[question][1]);
             ButtB.setText(questions[question][2]);
@@ -201,6 +209,7 @@ public class scifiGenre extends javax.swing.JFrame {
         });
         BackGroundPanel.add(Next, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, -1, -1));
 
+        Back.setVisible(false);
         Back.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         Back.setForeground(new java.awt.Color(255, 255, 255));
         Back.setText("<Back");
@@ -282,7 +291,7 @@ public class scifiGenre extends javax.swing.JFrame {
         }else{
              jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/wrong2.png")));
         }
-        
+        Next.setVisible(true);
         
         ButtA.setEnabled(false);
         ButtB.setEnabled(false);
@@ -298,7 +307,7 @@ public class scifiGenre extends javax.swing.JFrame {
         }else{
              jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/wrong2.png")));
         }
-        
+        Next.setVisible(true);
         
         ButtA.setEnabled(false);
         ButtB.setEnabled(false);
@@ -314,7 +323,7 @@ public class scifiGenre extends javax.swing.JFrame {
         }else{
              jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/wrong2.png")));
         }
-        
+        Next.setVisible(true);
         
         ButtA.setEnabled(false);
         ButtB.setEnabled(false);
@@ -330,7 +339,7 @@ public class scifiGenre extends javax.swing.JFrame {
         }else{
              jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/wrong2.png")));
         }
-      
+      Next.setVisible(true);
         
         ButtA.setEnabled(false);
         ButtB.setEnabled(false);
@@ -341,10 +350,14 @@ public class scifiGenre extends javax.swing.JFrame {
     private void NextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextMouseClicked
         question++;
         Update();
-        
         if(questions[question][0] == questions[7][0]){
             jButton1.setVisible(true);
-            QuestionDisp.setText("---");
+            QuestionDisp.setText("7");
+            qSection.setEnabled(false);
+            ButtA.setEnabled(false);
+            ButtB.setEnabled(false);
+            ButtC.setEnabled(false);
+            ButtD.setEnabled(false);
         }
     }//GEN-LAST:event_NextMouseClicked
 
@@ -390,14 +403,14 @@ public class scifiGenre extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Back;
+    public javax.swing.JLabel Back;
     private javax.swing.JLabel BackGroundLabel;
     private javax.swing.JPanel BackGroundPanel;
     public javax.swing.JButton ButtA;
     public javax.swing.JButton ButtB;
     public javax.swing.JButton ButtC;
     public javax.swing.JButton ButtD;
-    private javax.swing.JLabel Next;
+    public javax.swing.JLabel Next;
     private javax.swing.JLabel QuestionDisp;
     public static javax.swing.JLabel ScoreDisp;
     public javax.swing.JButton jButton1;

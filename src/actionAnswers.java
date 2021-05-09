@@ -40,7 +40,7 @@ public class actionAnswers extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Action - Answers");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

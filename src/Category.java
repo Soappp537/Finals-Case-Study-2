@@ -30,6 +30,7 @@ public class Category extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUIZZit");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BackGroundPanel.setBackground(new java.awt.Color(102, 102, 255));
@@ -252,7 +253,7 @@ public class Category extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLabel6;
-    private javax.swing.JMenuBar jMenuBar1;
+    public static javax.swing.JMenuBar jMenuBar1;
     public javax.swing.JMenuItem menuSub1;
     private javax.swing.JMenuItem menuSub2;
     public javax.swing.JButton sifiB;
